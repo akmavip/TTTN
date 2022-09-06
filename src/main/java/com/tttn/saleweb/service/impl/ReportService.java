@@ -1,0 +1,47 @@
+package com.tttn.saleweb.service.impl;
+
+import java.util.List;
+
+import com.tttn.saleweb.dao.IReportDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tttn.saleweb.service.IReportService;
+
+@Service
+public class ReportService implements IReportService {
+	
+	@Autowired
+	private IReportDAO dao;
+
+	@Override
+	public List<Object[]> inventory() {
+		return dao.inventory();
+	}
+
+	@Override
+	public List<Object[]> revenueByCategory() {
+		return dao.revenueByCategory();
+	}
+
+	@Override
+	public List<Object[]> revenueByCustomer() {
+		return dao.revenueByCustomer();
+	}
+
+	@Override
+	public List<Object[]> revenueByYear() {
+		return dao.revenueByYear();
+	}
+
+	@Override
+	public List<Object[]> revenueByMonth() {	
+		return dao.revenueByMonth();
+	}
+
+	@Override
+	public List<Object[]> revenueByProduct(Integer categoryId) {
+	return dao.revenueByProduct(categoryId);
+	}
+
+}
